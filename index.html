@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea checker</title>
+</head>
+<style>
+    textarea {
+        width: 50%;
+        height: 150px;
+        border: 1px solid black;
+        outline: none;
+    }
+</style>
+
+<body>
+    <div class="textareacontainer">
+        <textarea name="textinput" id="textinput" placeholder="Start typing here......."></textarea>
+        <span id="livetextcounter">0</span>
+        <span id="maxlimit">/ 250</span>
+    </div>
+
+</body>
+<script>
+    let textareainput = document.getElementById("textinput");
+    let counter = document.getElementById("livetextcounter");
+    let maxlimit = document.getElementById("maxlimit");
+    textareainput.addEventListener("input", () => {
+        if (textareainput != "") {
+            counter.innerText = textareainput.value.length;
+        }
+        else {
+            count = 0;
+            counter.innerText = count;
+        }
+        if (textareainput.value.length > 250) {
+            textareainput.style.borderColor = "red";
+        }
+        else{
+            textareainput.style.borderColor = "black";
+
+        }
+    })
+</script>
+
+</html>
